@@ -1,9 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Card, Button, Avatar, Modal, Badge, ButtonIcon } from 'react-rainbow-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-import Flippy, { FrontSide, BackSide } from 'react-flippy';
+
 
 const developers = [];
+const githubURL = 'https://raw.githubusercontent.com/SaudiOpenSourceCommunity/SaudiOSS/master/README.md';
+
 
 function parseHTML(html) {
     var t = document.createElement('template');
@@ -13,10 +17,10 @@ function parseHTML(html) {
 
 async function fetchProjects() {
     let openSourceProjects = [];
-    openSourceProjects = await fetch('https://raw.githubusercontent.com/SaudiOpenSourceCommunity/SaudiOSS/master/README.md').then(payload => payload.text());
+    openSourceProjects = await fetch(githubURL).then(payload => payload.text());
     return tableToJSON(openSourceProjects);
-
 }
+
 function tableToJSON(table) {
     const TableNode = Array.from(parseHTML(table).querySelector("tbody").children).splice(1);
     for (let i = 0; i < TableNode.length; i++) {
@@ -26,10 +30,10 @@ function tableToJSON(table) {
         developer.name = row[0].innerText.trim();
         developer.githubURL = row[0].children[0] ? row[0].children[0].href.trim() : undefined;
         developer.project = [];
-        developer.project.push({ name: row[1].innerText.trim(), URL: row[1].children[0].href.trim(),  description: row[2].innerText.trim()});
+        developer.project.push({ name: row[1].innerText.trim(), URL: row[1].children[0].href.trim(), description: row[2].innerText.trim() });
         for (let j = 1; j < developer.NumberOfProjects; j++) {
             row = TableNode[++i].cells;
-            developer.project.push({ name: row[0].innerText.trim(),URL: row[0].children[0].href.trim() , description: row[1].innerText.trim()});
+            developer.project.push({ name: row[0].innerText.trim(), URL: row[0].children[0].href.trim(), description: row[1].innerText.trim() });
         }
         developers.push(developer);
     }
@@ -37,30 +41,95 @@ function tableToJSON(table) {
 }
 fetchProjects()
 
+
 function App() {
     return (
-        <Flippy
-            flipOnHover={false} // default false
-            flipOnClick={true} // default false
-            flipDirection="horizontal" // horizontal or vertical
-            // ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-            // if you pass isFlipped prop component will be controlled component.
-            // and other props, which will go to div
-            style={{ width: '200px', height: '200px' }} /// these are optional style, it is not necessary
-        >
-            <FrontSide
-                style={{
-                    backgroundColor: '#41669d',
-                }}
-            >
-                RICK
-    </FrontSide>
-            <BackSide
-                style={{ backgroundColor: '#175852' }}>
-                ROCKS
-    </BackSide>
-        </Flippy>
+        <div className="container" >
+            <HeroHeadLine />
+            <DevInfo />
+            <DevInfo />
+            <DevInfo />
+        </div>
+    )
+}
+
+function HeroHeadLine() {
+    return (
+    <>
+        <div className="hero">
+            <img src="logo.png"/>
+            <h1>
+                المجموعة السعودية للمصادر المفتوحة
+            </h1>
+        </div>
+    </>
     );
 }
+
+function DevInfo() {
+    const [closed, handleOnClose] = useState(false);
+
+
+    return (
+        <div className="rainbow-m-around_large item">
+            <Card footer=
+                {
+                    <>
+                        <Button variant="brand" className="rainbow-m-around_medium" onClick={() => handleOnClose(true)}>
+                            <Badge
+                                className="rainbow-m-around_xx"
+                                label="2"
+                                title="the badge title"
+                                style={{ padding: '0.25em 0.50em', margin: "-2em -1em 1.5em" }}
+
+                            />
+                            المشاريع البرمجية
+                        <FontAwesomeIcon icon={faCode} className="rainbow-m-left_medium" />
+
+                        </Button>
+
+                    </>
+                }
+            >
+                <div className="rainbow-p-around_xx-large rainbow-align-content_center rainbow-flex_column" >
+                    <Avatar
+                        src="https://github.com/Alaboudi1.png"
+                        assistiveText=" عبدالعزيز العبودي"
+                        title=" عبدالعزيز العبودي"
+                        size="large"
+                        style={{ height: '5.2rem', width: '5.2rem' }}
+                    />
+                    <h1 className="rainbow-p-top_large rainbow-font-size-heading_small rainbow-color_dark-1"> عبدالعزيز العبودي</h1>
+                </div>
+                <Modal
+                    isOpen={closed}
+                    onRequestClose={() => handleOnClose(false)}
+                    title="المشاريع"
+                    footer={
+                        <div className="rainbow-flex rainbow-justify_spread">
+                            <Avatar
+                                src="https://github.com/Alaboudi1.png"
+                                assistiveText=" عبدالعزيز العبودي"
+                                title=" عبدالعزيز العبودي"
+                                size="large"
+                            />
+                            <Badge
+                                className="rainbow-m-around_medium"
+                                label="عبدالعزيز العبودي"
+                                variant="inverse"
+                            />
+                        </div>
+                    }
+                >
+
+                </Modal>
+
+            </Card>
+
+        </div >
+
+    );
+}
+// curl https://api.github.com/search/repositories?q=sameik
 
 export default App;
