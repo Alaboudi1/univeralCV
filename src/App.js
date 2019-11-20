@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, Button, Avatar, Modal, Badge, ButtonIcon } from 'react-rainbow-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
-
-const developers = [];
 const githubURL = 'https://raw.githubusercontent.com/SaudiOpenSourceCommunity/SaudiOSS/master/README.md';
 
 
@@ -21,7 +19,9 @@ async function fetchProjects() {
     return tableToJSON(openSourceProjects);
 }
 
+//This looks ugly 🙁 but could not figure out better way to do it.
 function tableToJSON(table) {
+    const developers = [];
     const TableNode = Array.from(parseHTML(table).querySelector("tbody").children).splice(1);
     for (let i = 0; i < TableNode.length; i++) {
         let row = TableNode[i].cells;
@@ -37,9 +37,9 @@ function tableToJSON(table) {
         }
         developers.push(developer);
     }
-    console.log(developers);
+    return developers;
 }
-fetchProjects()
+
 
 
 function App() {
@@ -54,21 +54,25 @@ function App() {
 }
 
 function HeroHeadLine() {
+    const backgroundImgRef = useRef(null);
     return (
-    <>
-        <div className="hero">
-            <img src="logo.png"/>
-            <h1>
-                المجموعة السعودية للمصادر المفتوحة
-            </h1>
-        </div>
-    </>
+        <>
+            <div className="hero" ref={backgroundImgRef}>
+                <img src="logo_mini.png" />
+                <p className="oss-title">
+                    المجموعة السعودية للمصادر المفتوحة
+            </p>
+            </div>
+        </>
     );
 }
 
 function DevInfo() {
     const [closed, handleOnClose] = useState(false);
-
+    const [developers, loadDevelopers] = useState([]);
+    useEffect(() => {
+        loadDevelopers(fetchProjects())
+    }, [])
 
     return (
         <div className="rainbow-m-around_large item">
@@ -131,5 +135,9 @@ function DevInfo() {
     );
 }
 // curl https://api.github.com/search/repositories?q=sameik
+
+
+
+
 
 export default App;
