@@ -34,16 +34,38 @@ body {
     font-size: 5em;
     text-align: center;
 }
-@media screen and (max-width: 900px) {
-    .oss-title{
-        font-size: 3em;
-    }    
-}
+
 .item {
-  align-self: stretch
+    flex: auto;
+     flex-basis: 20%;
+
 }
+.devs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  }
 .rainbow-button--brand {
 
     background-color: #0f8a02 !important;
     border: 1px solid #fff !important;
+}
+
+
+
+@media screen and (max-width: 1400px) {
+    .oss-title{
+        font-size: 4em;
+    }
+    .item {
+     flex: auto;
+}
+}
+@media screen and (max-width: 900px) {
+    .oss-title{
+        font-size: 3em;
+    }
+
+
 }

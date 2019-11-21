@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Card, Button, Avatar, Modal, Badge, ButtonIcon } from 'react-rainbow-components';
+import { Card, Button, Avatar, Modal, Badge, ButtonIcon, Spinner } from 'react-rainbow-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
@@ -43,43 +43,45 @@ function tableToJSON(table) {
 
 
 function App() {
+    const [developers, loadDevelopers] = useState([]);
+    useEffect(() => {
+        const fetchDev = async () => {
+            const developers = await fetchProjects();
+            loadDevelopers(developers);
+        }
+        fetchDev();
+
+    }, [])
+    if (developers.length === 0)
+        return (
+            <>
+            </>
+        );
     return (
-        <div className="container" >
-            <HeroHeadLine />
+
+        <div className="devs-container">
             <DevInfo />
             <DevInfo />
             <DevInfo />
+            <DevInfo />
+            <DevInfo />
+
+
+
         </div>
     )
 }
 
-function HeroHeadLine() {
-    const backgroundImgRef = useRef(null);
-    return (
-        <>
-            <div className="hero" ref={backgroundImgRef}>
-                <img src="logo_mini.png" />
-                <p className="oss-title">
-                    المجموعة السعودية للمصادر المفتوحة
-            </p>
-            </div>
-        </>
-    );
-}
-
-function DevInfo() {
+function DevInfo(props) {
     const [closed, handleOnClose] = useState(false);
-    const [developers, loadDevelopers] = useState([]);
-    useEffect(() => {
-        loadDevelopers(fetchProjects())
-    }, [])
-
     return (
         <div className="rainbow-m-around_large item">
             <Card footer=
                 {
                     <>
                         <Button variant="brand" className="rainbow-m-around_medium" onClick={() => handleOnClose(true)}>
+                            المشاريع البرمجية
+                        <FontAwesomeIcon icon={faCode} className="rainbow-m-left_medium" />
                             <Badge
                                 className="rainbow-m-around_xx"
                                 label="2"
@@ -87,8 +89,6 @@ function DevInfo() {
                                 style={{ padding: '0.25em 0.50em', margin: "-2em -1em 1.5em" }}
 
                             />
-                            المشاريع البرمجية
-                        <FontAwesomeIcon icon={faCode} className="rainbow-m-left_medium" />
 
                         </Button>
 
