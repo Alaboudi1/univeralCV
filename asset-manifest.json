@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/univeralCV/static/css/main.8e4ea1b5.chunk.css",
-    "main.js": "/univeralCV/static/js/main.5d12b710.chunk.js",
-    "main.js.map": "/univeralCV/static/js/main.5d12b710.chunk.js.map",
+    "main.css": "/univeralCV/static/css/main.f20bb3d9.chunk.css",
+    "main.js": "/univeralCV/static/js/main.a9244860.chunk.js",
+    "main.js.map": "/univeralCV/static/js/main.a9244860.chunk.js.map",
     "runtime-main.js": "/univeralCV/static/js/runtime-main.803c0e3f.js",
     "runtime-main.js.map": "/univeralCV/static/js/runtime-main.803c0e3f.js.map",
-    "static/css/2.5b38073a.chunk.css": "/univeralCV/static/css/2.5b38073a.chunk.css",
-    "static/js/2.60597a87.chunk.js": "/univeralCV/static/js/2.60597a87.chunk.js",
-    "static/js/2.60597a87.chunk.js.map": "/univeralCV/static/js/2.60597a87.chunk.js.map",
+    "static/css/2.8be20460.chunk.css": "/univeralCV/static/css/2.8be20460.chunk.css",
+    "static/js/2.ffa97803.chunk.js": "/univeralCV/static/js/2.ffa97803.chunk.js",
+    "static/js/2.ffa97803.chunk.js.map": "/univeralCV/static/js/2.ffa97803.chunk.js.map",
     "index.html": "/univeralCV/index.html",
-    "precache-manifest.caf3a86d4d7c2e2d85ecf72ec7930ca0.js": "/univeralCV/precache-manifest.caf3a86d4d7c2e2d85ecf72ec7930ca0.js",
+    "precache-manifest.79c7c3f484959596f69471d3e6192c04.js": "/univeralCV/precache-manifest.79c7c3f484959596f69471d3e6192c04.js",
     "service-worker.js": "/univeralCV/service-worker.js",
-    "static/css/2.5b38073a.chunk.css.map": "/univeralCV/static/css/2.5b38073a.chunk.css.map",
-    "static/css/main.8e4ea1b5.chunk.css.map": "/univeralCV/static/css/main.8e4ea1b5.chunk.css.map",
+    "static/css/2.8be20460.chunk.css.map": "/univeralCV/static/css/2.8be20460.chunk.css.map",
+    "static/css/main.f20bb3d9.chunk.css.map": "/univeralCV/static/css/main.f20bb3d9.chunk.css.map",
     "static/media/rainbow-styles.css": "/univeralCV/static/media/Lato-Regular.e9d329fb.svg"
   }
 }
