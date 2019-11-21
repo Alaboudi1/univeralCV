@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e4ea1b5.chunk.css",
+    "main.js": "/static/js/main.5d12b710.chunk.js",
+    "main.js.map": "/static/js/main.5d12b710.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e89f2d3e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e89f2d3e.js.map",
+    "static/css/2.54106a8e.chunk.css": "/static/css/2.54106a8e.chunk.css",
+    "static/js/2.03bab16e.chunk.js": "/static/js/2.03bab16e.chunk.js",
+    "static/js/2.03bab16e.chunk.js.map": "/static/js/2.03bab16e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.89ce8957af066c33c2b2e3e5a48420be.js": "/precache-manifest.89ce8957af066c33c2b2e3e5a48420be.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.54106a8e.chunk.css.map": "/static/css/2.54106a8e.chunk.css.map",
+    "static/css/main.8e4ea1b5.chunk.css.map": "/static/css/main.8e4ea1b5.chunk.css.map",
+    "static/media/rainbow-styles.css": "/static/media/Lato-Regular.e9d329fb.svg"
+  }
+}
