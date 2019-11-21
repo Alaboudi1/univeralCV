@@ -43,5 +43,6 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  }
+  },
+  "homepage": "https://alaboudi1.github.io/univeralCV/"
 }
