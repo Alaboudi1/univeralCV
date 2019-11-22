@@ -11,13 +11,14 @@
     "react-dom": "^16.9.0",
     "react-flippy": "^0.1.5",
     "react-rainbow-components": "^1.6.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "shuffle-array": "^1.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "husky": "^2.3.0",
     "prettier": "^1.17.1",
-    "pretty-quick": "^1.11.0",
-    "gh-pages": "^2.1.1"
+    "pretty-quick": "^1.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
